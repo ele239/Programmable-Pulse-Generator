@@ -70,7 +70,7 @@ begin
             output => out_dff_delay
         );
 
-    behaviour: process(clk, resetn)
+    update_state: process(clk, resetn)
         
     begin
         if(resetn = '0') then
@@ -102,13 +102,13 @@ begin
                         iter_left <= iter_left - 1;
                     end if;
 
-                -- caso uscita 0 e variabile a 0 allora devo leggere da dff_len
+                
                 when PULSE_LOW =>
                     if(iter_left = 0) then 
                         if(unsigned(out_dff_len) = 0) then
                             state <= IDLE;
                         else
-                            iter_left <= to_integer(unsigned(out_dff_len)) - 1; -- sicuramente manca la conversione da segnale ad intero
+                            iter_left <= to_integer(unsigned(out_dff_len)) - 1; 
                             state <= PULSE_HIGH;
                         end if;
 

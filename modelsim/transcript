@@ -1,0 +1,44 @@
+# Compile of tb_Programmable_Pulse_Generator.vhd was successful.
+# Compile of Programmable_Pulse_Generator.vhd was successful.
+# Compile of DFF.vhd was successful.
+# 3 compiles, 0 failed with no errors.
+vsim -gui work.tb_programmable_pulse_generator
+# vsim -gui work.tb_programmable_pulse_generator 
+# Start time: 17:18:43 on Sep 08,2026
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_programmable_pulse_generator(testbench)
+# Loading ieee.numeric_std(body)
+# Loading work.programmable_pulse_generator(pulse_generator)
+# Loading work.dff(dff)
+add wave  \
+sim:/tb_programmable_pulse_generator/clk \
+sim:/tb_programmable_pulse_generator/resetn \
+sim:/tb_programmable_pulse_generator/load_delay \
+sim:/tb_programmable_pulse_generator/load_length \
+sim:/tb_programmable_pulse_generator/data \
+sim:/tb_programmable_pulse_generator/pulse
+run -all
+# ** Note: CASO 1: reset iniziale e stato di riposo
+#    Time: 0 ps  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 2: programmazione parziale nessun avvio
+#    Time: 100 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 3: programmazione completa, comportamento canonico
+#    Time: 200 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 4: programmazione limite durata impulso
+#    Time: 600 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 5: onda quadra
+#    Time: 1 us  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 6: scritture multiple delay e riprogrammazione a metà fase
+#    Time: 1500 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 7: stato idle per delay settato a 0
+#    Time: 2200 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 8: reset durante pulse
+#    Time: 2900 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: Simulation end ...
+#    Time: 4 us  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# image file format "bmp" is unknown
+# image file format "bmp" is unknown
+# End time: 08:49:28 on Sep 09,2026, Elapsed time: 15:30:45
+# Errors: 0, Warnings: 2

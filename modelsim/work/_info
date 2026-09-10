@@ -1,0 +1,136 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Eleonora/Downloads/Esercizio 3
+Edff
+Z0 w1788808561
+Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z2 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 18
+Z3 dC:/Users/Eleonora/Downloads/Progetto Electronics/modelsim
+Z4 8C:/Users/Eleonora/Downloads/Progetto Electronics/src/DFF.vhd
+Z5 FC:/Users/Eleonora/Downloads/Progetto Electronics/src/DFF.vhd
+l0
+L4 1
+V>B_IV??M4Ob95JL=5l;B^1
+!s100 RN?lC51W;NgMXDTfHYC[F3
+Z6 OV;C;2020.1;71
+32
+Z7 !s110 1788880689
+!i10b 1
+Z8 !s108 1788880689.000000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Eleonora/Downloads/Progetto Electronics/src/DFF.vhd|
+Z10 !s107 C:/Users/Eleonora/Downloads/Progetto Electronics/src/DFF.vhd|
+!i113 1
+Z11 o-work work -2002 -explicit
+Z12 tExplicit 1 CvgOpt 0
+Adff
+R1
+R2
+Z13 DEx4 work 3 dff 0 22 >B_IV??M4Ob95JL=5l;B^1
+!i122 18
+l20
+Z14 L18 14
+Z15 VH7PQfVT6LhS0:9K_ICa]V2
+Z16 !s100 T9Z8n08W1AQ:FELdg;]LT0
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Eprogrammable_pulse_generator
+Z17 w1788856952
+Z18 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R1
+R2
+!i122 17
+R3
+Z19 8C:/Users/Eleonora/Downloads/Progetto Electronics/src/Programmable_Pulse_Generator.vhd
+Z20 FC:/Users/Eleonora/Downloads/Progetto Electronics/src/Programmable_Pulse_Generator.vhd
+l0
+L5 1
+VIYEGU`_EMi6HMnz0UO]T20
+!s100 kSU<;REOCYSUF02?LO=G;0
+R6
+32
+R7
+!i10b 1
+Z21 !s108 1788880688.000000
+Z22 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Eleonora/Downloads/Progetto Electronics/src/Programmable_Pulse_Generator.vhd|
+Z23 !s107 C:/Users/Eleonora/Downloads/Progetto Electronics/src/Programmable_Pulse_Generator.vhd|
+!i113 1
+R11
+R12
+Apulse_generator
+R18
+R1
+R2
+DEx4 work 28 programmable_pulse_generator 0 22 IYEGU`_EMi6HMnz0UO]T20
+!i122 17
+l45
+L22 103
+V98zbO?@aPBDTPg]oW`Yl61
+!s100 >j`29S;TP9h3^>_PF4CkS1
+R6
+32
+R7
+!i10b 1
+R21
+R22
+R23
+!i113 1
+R11
+R12
+Etb_programmable_pulse_generator
+Z24 w1788880510
+R1
+R2
+!i122 16
+R3
+Z25 8C:/Users/Eleonora/Downloads/Progetto Electronics/tb/tb_Programmable_Pulse_Generator.vhd
+Z26 FC:/Users/Eleonora/Downloads/Progetto Electronics/tb/tb_Programmable_Pulse_Generator.vhd
+l0
+L4 1
+VbbjM_Ho@M7iT5`cBc0]<d3
+!s100 1AOO>c1<@RH2:Q@FehOBF1
+R6
+32
+Z27 !s110 1788880688
+!i10b 1
+R21
+Z28 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Eleonora/Downloads/Progetto Electronics/tb/tb_Programmable_Pulse_Generator.vhd|
+Z29 !s107 C:/Users/Eleonora/Downloads/Progetto Electronics/tb/tb_Programmable_Pulse_Generator.vhd|
+!i113 1
+R11
+R12
+Atestbench
+R1
+R2
+DEx4 work 31 tb_programmable_pulse_generator 0 22 bbjM_Ho@M7iT5`cBc0]<d3
+!i122 16
+l41
+L7 157
+Vz;dNDX5mb:h:1h?MBiC5U3
+!s100 EZ5e5ImOnIPJQ7EEa1@XN1
+R6
+32
+R27
+!i10b 1
+R21
+R28
+R29
+!i113 1
+R11
+R12

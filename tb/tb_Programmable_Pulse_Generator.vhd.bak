@@ -112,21 +112,13 @@ begin
             wait for CLK_PERIOD; 
 
             data <= x"03";
-            wait for CLK_PERIOD;
-            
-            load_length <= '1'; 
-            load_delay <= '1';
-            wait for CLK_PERIOD*4; 
+            wait for CLK_PERIOD*5; 
 
             report "CASO 7: stato idle per delay settato a 0";
             load_length <= '1'; 
             load_delay <= '0'; 
             data <= x"00";   
-            wait for CLK_PERIOD;
-
-            load_length <= '1'; 
-            load_delay <= '1';
-            wait for CLK_PERIOD*6;
+            wait for CLK_PERIOD*2;
 
             report "CASO 8: reset durante pulse";
             load_length <= '0'; 
@@ -143,6 +135,7 @@ begin
             resetn <= '0';
             wait until falling_edge(clk); 
 
+            wait for CLK_PERIOD/4;
             resetn <= '1'; 
             wait until falling_edge(clk);
 
