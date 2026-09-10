@@ -35,12 +35,31 @@ architecture pulse_generator of Programmable_Pulse_Generator is
         );
     end component;
 
-    type state_t is (IDLE, PULSE_HIGH, PULSE_LOW);
-    signal state : state_t := IDLE;
+    component DownCounter
+        generic(
+        N: positive := 8
+        );
+        port(
+            data: in std_logic_vector (N-1 downto 0);
+            diff: out std_logic_vector (N-1 downto 0)
+        );
+    end component;
 
-    signal out_dff_len: std_logic_vector (Nbit-1 downto 0) := (others => '0');
-    signal out_dff_delay: std_logic_vector (Nbit-1 downto 0) := (others => '0');
-    signal iter_left: integer range 0 to 2**Nbit - 1:= 0;
+    signal pulse_value: std_logic;
+
+    signal out_dff_len: std_logic_vector (Nbit-1 downto 0);
+    signal out_dff_delay: std_logic_vector (Nbit-1 downto 0);
+
+    signal out_mux: std_logic_vector (Nbit-1 downto 0);
+
+    signal iter_curr: std_logic_vector (Nbit-1 downto 0);
+    signal iter_next: std_logic_vector (Nbit-1 downto 0);
+
+    signal any_input_zero: std_logic; 
+    signal both_input_zero: std_logic; 
+    
+
+    signal transition_enabled: std_logic;
 
 begin 
 
@@ -70,55 +89,55 @@ begin
             output => out_dff_delay
         );
 
-    update_state: process(clk, resetn)
-        
+    dff_counter: DFF
+        generic map(
+            N => Nbit
+        )
+        port map(
+            enablen => '0',
+            data => out_mux,
+            clk => clk,
+            resetn => resetn,
+
+            output => iter_curr
+        );
+
+    down_counter: DownCounter
+        generic map(
+            N => Nbit
+        )
+        port map(
+            data => iter_curr,
+            diff => iter_next
+        );
+
+    
+    transition_enabled <= (nor iter_next) or (nor iter_curr); -- reset edge case
+    any_input_zero <= ((nor out_dff_len) or (nor out_dff_delay));
+    both_input_zero <= ((nor out_dff_len) and (nor out_dff_delay));
+    
+    out_mux <= (0 => '1', others => '0') when (any_input_zero = '1' and transition_enabled = '1')
+        else out_dff_len when (transition_enabled = '1' and pulse_value = '0')
+        else out_dff_delay when (transition_enabled = '1' and pulse_value = '1')
+        else iter_next;
+
+    pulse_update: process(clk, resetn)
     begin
         if(resetn = '0') then
-            iter_left <= 0;
-            state <= IDLE;
-        
-        elsif (rising_edge(clk)) then 
+            pulse_value <= '0';
 
-            case state is 
+        elsif rising_edge(clk) then
 
-                when IDLE =>
-                    if(unsigned(out_dff_len) /= 0 and unsigned(out_dff_delay) /= 0) then
-                        state <= PULSE_HIGH;
-                        iter_left <= to_integer(unsigned(out_dff_len)) - 1;
-                    end if;
-
-                -- caso uscita 1 e variabile a 0 allora devo leggere da dff_delay
-                when PULSE_HIGH => 
-                    if (iter_left = 0) then 
-                        if(unsigned(out_dff_delay) = 0) then  
-                            state <= IDLE;
-                        else
-                            iter_left <= to_integer(unsigned(out_dff_delay)) - 1; 
-                            state <= PULSE_LOW;
-                        end if;
-
-                    -- caso uscita 1 e variabile diversa da zero allora devo continuare ad iterare
-                    else 
-                        iter_left <= iter_left - 1;
-                    end if;
-
-                
-                when PULSE_LOW =>
-                    if(iter_left = 0) then 
-                        if(unsigned(out_dff_len) = 0) then
-                            state <= IDLE;
-                        else
-                            iter_left <= to_integer(unsigned(out_dff_len)) - 1; 
-                            state <= PULSE_HIGH;
-                        end if;
-
-                    -- caso uscita 0 e variabile diversa da zero allora devo continuare ad iterare
-                    else 
-                        iter_left <= iter_left - 1;
-                    end if;
-            end case;
+            if(transition_enabled = '1') then 
+                if(both_input_zero = '1' or (pulse_value = '1' and (or out_dff_delay) = '1')) then
+                    pulse_value <= '0';
+                elsif (pulse_value = '0' and (or out_dff_len) = '1') then
+                    pulse_value <= '1';
+                end if;
+            end if;
         end if;
+
     end process;
-    
-    pulse <= '1' when state = PULSE_HIGH else '0';
+        
+    pulse <= pulse_value;
 end architecture;
