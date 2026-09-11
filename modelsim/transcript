@@ -1,10 +1,14 @@
-# Compile of tb_Programmable_Pulse_Generator.vhd was successful.
-# Compile of Programmable_Pulse_Generator.vhd was successful.
 # Compile of DFF.vhd was successful.
-# 3 compiles, 0 failed with no errors.
-vsim -gui work.tb_programmable_pulse_generator
-# vsim -gui work.tb_programmable_pulse_generator 
-# Start time: 17:18:43 on Sep 08,2026
+# Compile of DownCounter.vhd was successful.
+# Compile of FullAdder.vhd was successful.
+# Compile of Programmable_Pulse_Generator.vhd failed with 24 errors.
+# Compile of RippleCarryAdder.vhd was successful.
+# Compile of tb_Programmable_Pulse_Generator.vhd was successful.
+# 6 compiles, 1 failed with 24 errors.
+# Compile of Programmable_Pulse_Generator.vhd was successful with warnings.
+vsim -gui work.tb_programmable_pulse_generator(testbench)
+# vsim -gui work.tb_programmable_pulse_generator(testbench) 
+# Start time: 09:05:20 on Sep 11,2026
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -12,7 +16,10 @@ vsim -gui work.tb_programmable_pulse_generator
 # Loading ieee.numeric_std(body)
 # Loading work.programmable_pulse_generator(pulse_generator)
 # Loading work.dff(dff)
-add wave  \
+# Loading work.downcounter(counter)
+# Loading work.ripplecarryadder(rippleadd)
+# Loading work.fulladder(adder)
+add wave -position insertpoint  \
 sim:/tb_programmable_pulse_generator/clk \
 sim:/tb_programmable_pulse_generator/resetn \
 sim:/tb_programmable_pulse_generator/load_delay \
@@ -27,18 +34,276 @@ run -all
 # ** Note: CASO 3: programmazione completa, comportamento canonico
 #    Time: 200 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
 # ** Note: CASO 4: programmazione limite durata impulso
-#    Time: 600 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+#    Time: 5300 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
 # ** Note: CASO 5: onda quadra
-#    Time: 1 us  Iteration: 0  Instance: /tb_programmable_pulse_generator
+#    Time: 5700 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
 # ** Note: CASO 6: scritture multiple delay e riprogrammazione a metà fase
-#    Time: 1500 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+#    Time: 6200 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
 # ** Note: CASO 7: stato idle per delay settato a 0
-#    Time: 2200 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+#    Time: 6900 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
 # ** Note: CASO 8: reset durante pulse
-#    Time: 2900 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+#    Time: 7600 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
 # ** Note: Simulation end ...
-#    Time: 4 us  Iteration: 0  Instance: /tb_programmable_pulse_generator
-# image file format "bmp" is unknown
-# image file format "bmp" is unknown
-# End time: 08:49:28 on Sep 09,2026, Elapsed time: 15:30:45
-# Errors: 0, Warnings: 2
+#    Time: 8700 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# WARNING: No extended dataflow license exists
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# WARNING: No extended dataflow license exists
+# Compile of tb_Programmable_Pulse_Generator.vhd was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_programmable_pulse_generator(testbench)
+run -all
+# ** Note: CASO 1: reset iniziale e stato di riposo
+#    Time: 0 ps  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 2: programmazione length e avvio
+#    Time: 100 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 3: programmazione limite durata impulso
+#    Time: 1500 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 5: onda quadra
+#    Time: 2600 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 6: scritture multiple delay e riprogrammazione a metà fase
+#    Time: 3100 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 7: stato idle per delay settato a 0
+#    Time: 3800 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 8: reset durante pulse
+#    Time: 4500 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: Simulation end ...
+#    Time: 5600 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# Compile of tb_Programmable_Pulse_Generator.vhd was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_programmable_pulse_generator(testbench)
+run -all
+# GetModuleFileName: Impossibile trovare il modulo specificato.
+# 
+# 
+# ** Note: CASO 1: reset iniziale e stato di riposo
+#    Time: 0 ps  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 2: programmazione length e avvio
+#    Time: 100 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 3: programmazione limite durata impulso
+#    Time: 1500 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 6: scritture multiple delay e riprogrammazione a metà fase
+#    Time: 2400 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 7: stato idle per delay settato a 0
+#    Time: 3100 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 8: reset durante pulse
+#    Time: 3800 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: Simulation end ...
+#    Time: 4900 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# Compile of tb_Programmable_Pulse_Generator.vhd was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_programmable_pulse_generator(testbench)
+run -all
+# GetModuleFileName: Impossibile trovare il modulo specificato.
+# 
+# 
+# ** Note: CASO 1: reset iniziale e stato di riposo
+#    Time: 0 ps  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 2: programmazione length e avvio
+#    Time: 100 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 3: programmazione limite durata impulso
+#    Time: 1500 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 3: programmazione limite durata impulso
+#    Time: 2400 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 6: scritture multiple delay e riprogrammazione a metà fase
+#    Time: 3700 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 7: stato idle per delay settato a 0
+#    Time: 4400 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 8: reset durante pulse
+#    Time: 5100 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: Simulation end ...
+#    Time: 6200 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+add wave -position insertpoint  \
+sim:/tb_programmable_pulse_generator/prog_pulse_gen/dff_len/output
+add wave -position insertpoint  \
+sim:/tb_programmable_pulse_generator/prog_pulse_gen/dff_delay/output
+restart -f
+run -all
+# GetModuleFileName: Impossibile trovare il modulo specificato.
+# 
+# 
+# ** Note: CASO 1: reset iniziale e stato di riposo
+#    Time: 0 ps  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 2: programmazione length e avvio
+#    Time: 100 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 3: programmazione limite durata impulso
+#    Time: 1500 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 3: programmazione limite durata impulso
+#    Time: 2400 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 6: scritture multiple delay e riprogrammazione a metà fase
+#    Time: 3700 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 7: stato idle per delay settato a 0
+#    Time: 4400 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 8: reset durante pulse
+#    Time: 5100 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: Simulation end ...
+#    Time: 6200 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Compile of tb_Programmable_Pulse_Generator.vhd was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_programmable_pulse_generator(testbench)
+run -all
+# GetModuleFileName: Impossibile trovare il modulo specificato.
+# 
+# 
+# ** Note: CASO 1: reset iniziale e stato di riposo
+#    Time: 0 ps  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 2: programmazione length e avvio
+#    Time: 100 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 3: programmazione limite durata impulso
+#    Time: 1500 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 3: programmazione limite durata impulso
+#    Time: 2400 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 
+#    Time: 3700 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 
+#    Time: 4700 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 8: reset durante pulse
+#    Time: 5400 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: Simulation end ...
+#    Time: 6500 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# Compile of tb_Programmable_Pulse_Generator.vhd was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_programmable_pulse_generator(testbench)
+run -all
+# GetModuleFileName: Impossibile trovare il modulo specificato.
+# 
+# 
+# ** Note: CASO 1: reset iniziale e stato di riposo
+#    Time: 0 ps  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 2: programmazione length e avvio
+#    Time: 100 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 3: programmazione limite durata impulso
+#    Time: 1500 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 3: programmazione limite durata impulso
+#    Time: 2400 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 
+#    Time: 3700 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 
+#    Time: 4700 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: Simulation end ...
+#    Time: 6400 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# Compile of tb_Programmable_Pulse_Generator.vhd was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_programmable_pulse_generator(testbench)
+run -all
+# GetModuleFileName: Impossibile trovare il modulo specificato.
+# 
+# 
+# ** Note: CASO 1: reset iniziale e stato di riposo
+#    Time: 0 ps  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 2: programmazione length e avvio
+#    Time: 100 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 3: programmazione limite durata impulso
+#    Time: 1500 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 3: programmazione limite durata impulso
+#    Time: 2400 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 
+#    Time: 3700 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 
+#    Time: 4700 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 
+#    Time: 5900 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: Simulation end ...
+#    Time: 7800 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# Compile of tb_Programmable_Pulse_Generator.vhd failed with 1 errors.
+# Compile of tb_Programmable_Pulse_Generator.vhd was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_programmable_pulse_generator(testbench)
+run -all
+# GetModuleFileName: Impossibile trovare il modulo specificato.
+# 
+# 
+# ** Note: CASO 1: reset iniziale e stato di riposo
+#    Time: 0 ps  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 2: programmazione length e avvio
+#    Time: 100 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 3: programmazione limite durata impulso
+#    Time: 1500 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 3: programmazione limite durata impulso
+#    Time: 2400 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 
+#    Time: 3700 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 
+#    Time: 4700 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 
+#    Time: 5800 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO
+#    Time: 6900 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: Simulation end ...
+#    Time: 8100 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# Compile of tb_Programmable_Pulse_Generator.vhd was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_programmable_pulse_generator(testbench)
+run -all
+# GetModuleFileName: Impossibile trovare il modulo specificato.
+# 
+# 
+# ** Note: CASO 1: reset iniziale e stato di riposo
+#    Time: 0 ps  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 2: programmazione length e avvio
+#    Time: 100 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 3: programmazione limite durata impulso
+#    Time: 1500 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 3: programmazione limite durata impulso
+#    Time: 2400 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 
+#    Time: 3700 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 
+#    Time: 4700 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 
+#    Time: 5800 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO
+#    Time: 6900 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: Simulation end ...
+#    Time: 8100 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# Compile of tb_Programmable_Pulse_Generator.vhd was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_programmable_pulse_generator(testbench)
+run -all
+# GetModuleFileName: Impossibile trovare il modulo specificato.
+# 
+# 
+# ** Note: CASO 1: reset iniziale e stato di riposo
+#    Time: 0 ps  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 2: programmazione length e avvio
+#    Time: 100 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 3: programmazione limite durata impulso
+#    Time: 1500 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 3: programmazione limite durata impulso
+#    Time: 2400 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 
+#    Time: 3700 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 
+#    Time: 4700 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO 
+#    Time: 5800 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: CASO
+#    Time: 6900 ns  Iteration: 0  Instance: /tb_programmable_pulse_generator
+# ** Note: Simulation end ...
+#    Time: 8 us  Iteration: 0  Instance: /tb_programmable_pulse_generator
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/modelsim/wave.do
+# Unrecognized paper size (Letter), using Custom

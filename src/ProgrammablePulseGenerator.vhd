@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity Programmable_Pulse_Generator is 
+entity ProgrammablePulseGenerator is 
     generic(
         Nbit: positive := 8
     );
@@ -19,7 +19,7 @@ entity Programmable_Pulse_Generator is
     );
 end entity;
 
-architecture pulse_generator of Programmable_Pulse_Generator is
+architecture PPG of ProgrammablePulseGenerator is
 
     component DFF is
         generic(
@@ -45,24 +45,25 @@ architecture pulse_generator of Programmable_Pulse_Generator is
         );
     end component;
 
+    -- signal always connected to the output
     signal pulse_value: std_logic;
 
+    -- signals at the output of the DFFs
     signal out_dff_len: std_logic_vector (Nbit-1 downto 0);
     signal out_dff_delay: std_logic_vector (Nbit-1 downto 0);
 
+    -- signals to handle the multiplexer logic
     signal out_mux: std_logic_vector (Nbit-1 downto 0);
-
     signal iter_curr: std_logic_vector (Nbit-1 downto 0);
     signal iter_next: std_logic_vector (Nbit-1 downto 0);
 
-    signal any_input_zero: std_logic; 
+    -- condition signals
     signal both_input_zero: std_logic; 
-    
-
     signal transition_enabled: std_logic;
+    signal next_value: std_logic_vector (Nbit-1 downto 0);
 
 begin 
-
+    -- component instances
     dff_len: DFF
         generic map(
             N => Nbit
@@ -111,21 +112,32 @@ begin
             diff => iter_next
         );
 
+    -- the transition_enabled signal identifies a transition high -> low or low -> high. In addition, it is set to 1 after the reset phase
+    transition_enabled <= (nor iter_next) or (nor iter_curr);  
     
-    transition_enabled <= (nor iter_next) or (nor iter_curr); -- reset edge case
-    any_input_zero <= ((nor out_dff_len) or (nor out_dff_delay));
+    -- both_input_zero indicates the condition in which both length and delay are set to zero: it is used to force the output to 0
     both_input_zero <= ((nor out_dff_len) and (nor out_dff_delay));
     
-    out_mux <= (0 => '1', others => '0') when (any_input_zero = '1' and transition_enabled = '1')
-        else out_dff_len when (transition_enabled = '1' and pulse_value = '0')
-        else out_dff_delay when (transition_enabled = '1' and pulse_value = '1')
+    -- depending on the value of the output, the next_value signal holds the parameter required for the following phase
+    next_value <= out_dff_len when (pulse_value = '0') else out_dff_delay;
+    
+    -- when we are at a transition or after the reset phase and the parameter needed for the following transition is zero, out_mux is forced to 1 so the parameter is re-evaluated at every cycle
+    -- otherwise, if we are at a transition, out_mux is initialized with the parameter of the phase that is about to begin
+    -- the default behaviour is to take the output of the counter (iter_next)
+    out_mux <= (0 => '1', others => '0') when ((or next_value) = '0' and transition_enabled = '1')
+        else next_value when (transition_enabled = '1')
         else iter_next;
 
     pulse_update: process(clk, resetn)
     begin
+        -- async active-low reset
         if(resetn = '0') then
             pulse_value <= '0';
 
+        -- when we are at a transition and both inputs are set to 0, the pulse_value is forced to 0
+        -- when we are at a transition high -> low and the delay parameter is different from zero, the pulse_value is forced to 0
+        -- when we are at a transition low -> high and the length parameter is different from zero, the pulse_value is forced to 1
+        -- in all the other cases the pulse_value keeps its value
         elsif rising_edge(clk) then
 
             if(transition_enabled = '1') then 
@@ -139,5 +151,6 @@ begin
 
     end process;
         
+    -- pulse_value is always directly connected with the output
     pulse <= pulse_value;
 end architecture;
