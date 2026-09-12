@@ -5,7 +5,7 @@ entity tb_Programmable_Pulse_Generator is
     generic(
         N: positive := 8; 
         CLK_PERIOD: TIME := 100 ns; 
-        RESET_TIME: TIME := CLK_PERIOD;
+        RESET_TIME: TIME := CLK_PERIOD
     );
 end entity; 
 
@@ -61,26 +61,24 @@ begin
 
         clk <= not clk after CLK_PERIOD/2 when testing else '0';
 
-         -- inputs have an offset of half a clock
+         -- inputs have an offset of half a clock period
         stimuli: process
         begin
             
-            -- TEST 1: reset
-            report "TEST 1: reset";
+            report "TEST 1: reset test";
             load_length <= '0';
             load_delay <= '0'; 
             data <= x"02";
             wait for RESET_TIME;    
 
-            -- inseriamo il valore di length e parte la generazione dell'onda - comportamento canonico
-            report "CASO 2: programmazione length e avvio";
+            
+            report "TEST 2: pulse generation";
             resetn <= '1';
             load_length <= '0'; 
             load_delay <= '1';
             data <= x"03"; 
             wait for CLK_PERIOD;
 
-            -- specifico anche delay
             load_length <= '1';
             load_delay <= '0';
             data <= x"04";
@@ -90,8 +88,8 @@ begin
             load_delay <= '1';
             wait for CLK_PERIOD*12; 
 
-            -- metto length a 0, vedo che l'uscita mi viene mantenuta a 0 e l'impulso ccontinua un clock dopo che specifico il nuovo valore di len 
-            report "CASO 3: programmazione limite durata impulso";
+            
+            report "TEST 3: null length parameter";
             load_length <= '0'; 
             load_delay <= '1'; 
             data <= x"00";
@@ -110,8 +108,8 @@ begin
             load_delay <= '1';
             wait for CLK_PERIOD*4;
 
-            -- metto delay a 0, vedo che l'uscita mi viene mantenuta a 1 e l'impulso ccontinua un clock dopo che specifico il nuovo valore di delay 
-            report "CASO 3: programmazione limite durata impulso";
+            
+            report "TEST 4: null delay parameter";
             load_length <= '1'; 
             load_delay <= '0'; 
             data <= x"00";
@@ -130,8 +128,8 @@ begin
             load_delay <= '1';
             wait for CLK_PERIOD*8;
 
-            -- cambiamo più volte il valore e vediamo che viene campionato solo alla transizione
-            report "CASO ";
+            
+            report "TEST 5: transparency test";
             load_length <= '1'; 
             load_delay <= '0'; 
             data <= x"01";
@@ -141,14 +139,22 @@ begin
             wait for CLK_PERIOD; 
 
             data <= x"03";
+            wait for CLK_PERIOD*2;
+            
+            load_length <= '0'; 
+            load_delay <= '1'; 
+            data <= x"05";
+            wait for CLK_PERIOD;
+ 
+            data <= x"03";
             wait for CLK_PERIOD;
             
             load_length <= '1'; 
             load_delay <= '1';
-            wait for CLK_PERIOD*7; 
+            wait for CLK_PERIOD*5;
 
-            -- entrambi settati a 0 (quando il fronte è alto così devo vedere che va a 0)
-            report "CASO ";
+            
+            report "TEST 6: both parameters null";
             load_length <= '0'; 
             load_delay <= '0'; 
             data <= x"00";   
@@ -158,38 +164,35 @@ begin
             load_delay <= '1';
             wait for CLK_PERIOD*2;
 
-            -- adesso porto delay a 3
+
+             report "TEST 7: restart order";
             load_length <= '1'; 
             load_delay <= '0'; 
             data <= x"03";   
-            wait for CLK_PERIOD;
-
-            load_length <= '1'; 
-            load_delay <= '1';
             wait for CLK_PERIOD;
 
             load_length <= '0'; 
             load_delay <= '1'; 
-            data <= x"03";   
-            wait for CLK_PERIOD;
-
-            load_length <= '1'; 
-            load_delay <= '1';
-            wait for CLK_PERIOD*5;
-
-            -- generazione onda quadra
-            report "CASO ";
-            load_length <= '0'; 
-            load_delay <= '0'; 
             data <= x"04";   
             wait for CLK_PERIOD;
 
             load_length <= '1'; 
             load_delay <= '1';
-            wait for CLK_PERIOD*10;
+            wait for CLK_PERIOD*6;
 
-            -- inseriamo reset
-            report "CASO";
+    
+            report "TEST 8: simultaneous load";
+            load_length <= '0'; 
+            load_delay <= '0'; 
+            data <= x"01";   
+            wait for CLK_PERIOD;
+
+            load_length <= '1'; 
+            load_delay <= '1';
+            wait for CLK_PERIOD*7;
+
+
+            report "TEST 9: aynchronous reset";
             resetn <= '0';
             wait for CLK_PERIOD;
 
@@ -198,7 +201,6 @@ begin
             data <= x"03";   
             wait for CLK_PERIOD*2;
 
-            -- ripartenza dopo il reset
             resetn <= '1'; 
             wait for CLK_PERIOD*2;
 
@@ -211,7 +213,8 @@ begin
             load_delay <= '1';  
             wait for CLK_PERIOD*5;
 
-            report "Simulation end ...";
+
+            report "End of the simulation ...";
             testing <= false; 
             wait until rising_edge(clk);   
     end process; 

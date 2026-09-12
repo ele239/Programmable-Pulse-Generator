@@ -21,7 +21,7 @@ end entity;
 
 architecture structural of PPG_Wrapper is
 
-    component Programmable_Pulse_Generator is
+    component ProgrammablePulseGenerator is
         generic(
             Nbit: positive
         );
@@ -41,17 +41,17 @@ architecture structural of PPG_Wrapper is
     signal data_reg : std_logic_vector (Nbit-1 downto 0);
     signal resetn_reg : std_logic;
 
-    -- output registers
+    -- output register
     signal pulse_reg : std_logic;
 
-    -- output signals (aux)
+    -- output signal
     signal pulse_aux : std_logic;
 
 begin
 
     pulse <= pulse_reg;
 
-    PPG_core: Programmable_Pulse_Generator
+    PPG_core: ProgrammablePulseGenerator
         generic map(
             Nbit => Nbit
         )
@@ -67,13 +67,12 @@ begin
     process(clk)
     begin
         if rising_edge(clk) then
-            -- registri di ingresso
+            
             load_delay_reg <= load_delay;
             load_length_reg <= load_length;
             data_reg <= data;
             resetn_reg <= resetn;
 
-            -- registri di uscita
             pulse_reg <= pulse_aux;
         end if;
     end process;

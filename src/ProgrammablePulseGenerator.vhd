@@ -48,6 +48,9 @@ architecture PPG of ProgrammablePulseGenerator is
     -- signal always connected to the output
     signal pulse_value: std_logic;
 
+    -- output signal of the decision logic
+    signal next_pulse_value: std_logic;
+
     -- signals at the output of the DFFs
     signal out_dff_len: std_logic_vector (Nbit-1 downto 0);
     signal out_dff_delay: std_logic_vector (Nbit-1 downto 0);
@@ -112,21 +115,28 @@ begin
             diff => iter_next
         );
 
-    -- the transition_enabled signal identifies a transition high -> low or low -> high. In addition, it is set to 1 after the reset phase
+    -- the transition_enabled signal identifies a transition. iter_curr is also checked for the reset edge case
     transition_enabled <= (nor iter_next) or (nor iter_curr);  
     
-    -- both_input_zero indicates the condition in which both length and delay are set to zero: it is used to force the output to 0
+    -- both_input_zero indicates the condition in which both length and delay are set to zero
     both_input_zero <= ((nor out_dff_len) and (nor out_dff_delay));
     
-    -- depending on the value of the output, the next_value signal holds the parameter required for the following phase
+    -- the next_value signal holds the parameter required for the following phase
     next_value <= out_dff_len when (pulse_value = '0') else out_dff_delay;
     
-    -- when we are at a transition or after the reset phase and the parameter needed for the following transition is zero, out_mux is forced to 1 so the parameter is re-evaluated at every cycle
-    -- otherwise, if we are at a transition, out_mux is initialized with the parameter of the phase that is about to begin
-    -- the default behaviour is to take the output of the counter (iter_next)
+    -- at a transition, if the parameter needed for the following phase is zero, out_mux is forced to 1, causing another transition 
+    -- otherwise, out_mux is initialized with the parameter of the next phase
+    -- default behaviour: out_mux = iter_next
     out_mux <= (0 => '1', others => '0') when ((or next_value) = '0' and transition_enabled = '1')
         else next_value when (transition_enabled = '1')
         else iter_next;
+
+    -- this multiplexer determines the value of the output at the next rising edge of the clock:
+    -- outside a transition the current value is kept, otherwise it depends on the value of the parameters
+    next_pulse_value <= pulse_value when (transition_enabled = '0') else
+                                '0' when (both_input_zero = '1' or (pulse_value = '1' and (or out_dff_delay) = '1')) else
+                                '1' when (pulse_value = '0' and (or out_dff_len) = '1') else
+                                pulse_value;
 
     pulse_update: process(clk, resetn)
     begin
@@ -134,19 +144,8 @@ begin
         if(resetn = '0') then
             pulse_value <= '0';
 
-        -- when we are at a transition and both inputs are set to 0, the pulse_value is forced to 0
-        -- when we are at a transition high -> low and the delay parameter is different from zero, the pulse_value is forced to 0
-        -- when we are at a transition low -> high and the length parameter is different from zero, the pulse_value is forced to 1
-        -- in all the other cases the pulse_value keeps its value
         elsif rising_edge(clk) then
-
-            if(transition_enabled = '1') then 
-                if(both_input_zero = '1' or (pulse_value = '1' and (or out_dff_delay) = '1')) then
-                    pulse_value <= '0';
-                elsif (pulse_value = '0' and (or out_dff_len) = '1') then
-                    pulse_value <= '1';
-                end if;
-            end if;
+            pulse_value <= next_pulse_value;
         end if;
 
     end process;

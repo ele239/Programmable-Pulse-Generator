@@ -13,7 +13,7 @@ Edff
 Z0 w1788808561
 Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z2 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 19
+!i122 76
 Z3 dC:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/modelsim
 Z4 8C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/DFF.vhd
 Z5 FC:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/DFF.vhd
@@ -23,9 +23,9 @@ V>B_IV??M4Ob95JL=5l;B^1
 !s100 RN?lC51W;NgMXDTfHYC[F3
 Z6 OV;C;2020.1;71
 32
-Z7 !s110 1789110281
+Z7 !s110 1789224740
 !i10b 1
-Z8 !s108 1789110280.000000
+Z8 !s108 1789224740.000000
 Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/DFF.vhd|
 Z10 !s107 C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/DFF.vhd|
 !i113 1
@@ -35,7 +35,7 @@ Adff
 R1
 R2
 DEx4 work 3 dff 0 22 >B_IV??M4Ob95JL=5l;B^1
-!i122 19
+!i122 76
 l20
 L18 14
 VH7PQfVT6LhS0:9K_ICa]V2
@@ -54,7 +54,7 @@ Edowncounter
 Z13 w1789057064
 R1
 R2
-!i122 20
+!i122 77
 R3
 Z14 8C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/DownCounter.vhd
 Z15 FC:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/DownCounter.vhd
@@ -66,9 +66,9 @@ R6
 32
 R7
 !i10b 1
-Z16 !s108 1789110281.000000
-Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/DownCounter.vhd|
-Z18 !s107 C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/DownCounter.vhd|
+R8
+Z16 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/DownCounter.vhd|
+Z17 !s107 C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/DownCounter.vhd|
 !i113 1
 R11
 R12
@@ -76,7 +76,7 @@ Acounter
 R1
 R2
 DEx4 work 11 downcounter 0 22 OXCn^@agJ]L7Az=UmAcI13
-!i122 20
+!i122 77
 l30
 L15 29
 V<3L@RgU=o83hgF^YL^?E72
@@ -85,20 +85,20 @@ R6
 32
 R7
 !i10b 1
+R8
 R16
 R17
-R18
 !i113 1
 R11
 R12
 Efulladder
-Z19 w1788690271
+Z18 w1788690271
 R1
 R2
-!i122 21
+!i122 78
 R3
-Z20 8C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/FullAdder.vhd
-Z21 FC:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/FullAdder.vhd
+Z19 8C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/FullAdder.vhd
+Z20 FC:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/FullAdder.vhd
 l0
 L4 1
 V9OR;`>AfjGnZAG66WV;g42
@@ -107,9 +107,9 @@ R6
 32
 R7
 !i10b 1
-R16
-Z22 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/FullAdder.vhd|
-Z23 !s107 C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/FullAdder.vhd|
+R8
+Z21 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/FullAdder.vhd|
+Z22 !s107 C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/FullAdder.vhd|
 !i113 1
 R11
 R12
@@ -117,7 +117,7 @@ Aadder
 R1
 R2
 DEx4 work 9 fulladder 0 22 9OR;`>AfjGnZAG66WV;g42
-!i122 21
+!i122 78
 l15
 L14 5
 Vj5F@>DQ=dgPNe[CQT>K5T1
@@ -126,37 +126,37 @@ R6
 32
 R7
 !i10b 1
-R16
+R8
+R21
 R22
-R23
 !i113 1
 R11
 R12
 Eprogrammable_pulse_generator
-Z24 w1789109569
-Z25 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z23 w1789109569
+Z24 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 R1
 R2
 !i122 25
 R3
-Z26 8C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/Programmable_Pulse_Generator.vhd
-Z27 FC:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/Programmable_Pulse_Generator.vhd
+Z25 8C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/Programmable_Pulse_Generator.vhd
+Z26 FC:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/Programmable_Pulse_Generator.vhd
 l0
 L5 1
 VRDaCk][g1J?zgBKCab_093
 !s100 kSU<;REOCYSUF02?LO=G;0
 R6
 33
-Z28 !s110 1789110306
+Z27 !s110 1789110306
 !i10b 1
-Z29 !s108 1789110306.000000
-Z30 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/Programmable_Pulse_Generator.vhd|
-Z31 !s107 C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/Programmable_Pulse_Generator.vhd|
+Z28 !s108 1789110306.000000
+Z29 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/Programmable_Pulse_Generator.vhd|
+Z30 !s107 C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/Programmable_Pulse_Generator.vhd|
 !i113 1
-Z32 o-work work -2008 -explicit
+Z31 o-work work -2008 -explicit
 R12
 Apulse_generator
-R25
+R24
 R1
 R2
 DEx4 work 28 programmable_pulse_generator 0 22 RDaCk][g1J?zgBKCab_093
@@ -167,33 +167,76 @@ VHj<H<bWeg^AM]B]z_[kG_2
 !s100 JjQoaj@BZko=kU2L[Q1PZ1
 R6
 33
-R28
+R27
 !i10b 1
+R28
 R29
 R30
-R31
 !i113 1
-R32
+R31
 R12
-Eripplecarryadder
-Z33 w1788770284
+Eprogrammablepulsegenerator
+Z32 w1789224385
+R24
 R1
 R2
-!i122 23
+!i122 81
 R3
-Z34 8C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/RippleCarryAdder.vhd
-Z35 FC:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/RippleCarryAdder.vhd
+Z33 8C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/ProgrammablePulseGenerator.vhd
+Z34 FC:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/ProgrammablePulseGenerator.vhd
+l0
+L5 1
+VHPaR481>VzO@9I[GEXjc51
+!s100 4l;fAi3@4Z612Ni>^5hSW1
+R6
+33
+Z35 !s110 1789224741
+!i10b 1
+Z36 !s108 1789224741.000000
+Z37 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/ProgrammablePulseGenerator.vhd|
+Z38 !s107 C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/ProgrammablePulseGenerator.vhd|
+!i113 1
+R31
+R12
+Appg
+R24
+R1
+R2
+Z39 DEx4 work 26 programmablepulsegenerator 0 22 HPaR481>VzO@9I[GEXjc51
+!i122 81
+l68
+L22 134
+V_XNYZ3i3<eXO5<d^8b2XN0
+!s100 Pmf>VKGO4dKgnGjP7c=M63
+R6
+33
+R35
+!i10b 1
+R36
+R37
+R38
+!i113 1
+R31
+R12
+Eripplecarryadder
+Z40 w1788770284
+R1
+R2
+!i122 79
+R3
+Z41 8C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/RippleCarryAdder.vhd
+Z42 FC:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/RippleCarryAdder.vhd
 l0
 L4 1
 VLmhz2lPZL]Oc?W:o0k1AZ2
 !s100 oSg2ANJe?6QkNinPnT<Sf2
 R6
 32
-R7
+R35
 !i10b 1
-R16
-Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/RippleCarryAdder.vhd|
-Z37 !s107 C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/RippleCarryAdder.vhd|
+R36
+Z43 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/RippleCarryAdder.vhd|
+Z44 !s107 C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/RippleCarryAdder.vhd|
 !i113 1
 R11
 R12
@@ -201,59 +244,59 @@ Arippleadd
 R1
 R2
 DEx4 work 16 ripplecarryadder 0 22 Lmhz2lPZL]Oc?W:o0k1AZ2
-!i122 23
+!i122 79
 l30
 L17 51
 Vl0ZN60YAiFl;5imA0IJeG0
 !s100 VkaF]Bml072BPRV]I[3]e0
 R6
 32
-R7
+R35
 !i10b 1
-R16
 R36
-R37
-!i113 1
-R11
-R12
-Etb_programmable_pulse_generator
-Z38 w1789112685
-R1
-R2
-!i122 35
-R3
-Z39 8C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/tb/tb_Programmable_Pulse_Generator.vhd
-Z40 FC:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/tb/tb_Programmable_Pulse_Generator.vhd
-l0
-L4 1
-VbbjM_Ho@M7iT5`cBc0]<d3
-!s100 1AOO>c1<@RH2:Q@FehOBF1
-R6
-32
-Z41 !s110 1789112702
-!i10b 1
-Z42 !s108 1789112702.000000
-Z43 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/tb/tb_Programmable_Pulse_Generator.vhd|
-Z44 !s107 C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/tb/tb_Programmable_Pulse_Generator.vhd|
-!i113 1
-R11
-R12
-Atestbench
-R1
-R2
-Z45 DEx4 work 31 tb_programmable_pulse_generator 0 22 bbjM_Ho@M7iT5`cBc0]<d3
-!i122 35
-l41
-L7 206
-Vj7ONDB2OC5AIgQcQfOB^B3
-!s100 gg4H58U5UB0KbPRbXRGi21
-R6
-32
-R41
-!i10b 1
-R42
 R43
 R44
 !i113 1
 R11
+R12
+Etb_programmable_pulse_generator
+Z45 w1789224705
+R1
+R2
+!i122 80
+R3
+Z46 8C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/tb/tb_Programmable_Pulse_Generator.vhd
+Z47 FC:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/tb/tb_Programmable_Pulse_Generator.vhd
+l0
+L4 1
+V2MiEG?c37WTTkH>bh[PdX2
+!s100 ^NL[NFAhDUm;]R8gZVWij3
+R6
+33
+R35
+!i10b 1
+R36
+Z48 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/tb/tb_Programmable_Pulse_Generator.vhd|
+Z49 !s107 C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/tb/tb_Programmable_Pulse_Generator.vhd|
+!i113 1
+R31
+R12
+Atestbench
+R1
+R2
+DEx4 work 31 tb_programmable_pulse_generator 0 22 2MiEG?c37WTTkH>bh[PdX2
+!i122 80
+l45
+L12 210
+VP5E2_cG_;FHcaamZhZOIR2
+!s100 KkGn^n=CiaGUDbg]@L0>d3
+R6
+33
+R35
+!i10b 1
+R36
+R48
+R49
+!i113 1
+R31
 R12

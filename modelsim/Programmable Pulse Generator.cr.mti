@@ -30,4 +30,22 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling entity RippleCarryAdder
 -- Compiling architecture rippleAdd of RippleCarryAdder
 
+} {} {}} C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/ProgrammablePulseGenerator.vhd {2 {vcom -work work -2008 -explicit -stats=none C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/ProgrammablePulseGenerator.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity ProgrammablePulseGenerator
+-- Compiling architecture PPG of ProgrammablePulseGenerator
+** Warning: C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/src/ProgrammablePulseGenerator.vhd(130): (vcom-1074) Non-locally static OTHERS choice is allowed only if it is the only choice of the only association.
+
+} {} {}} C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/tb/tb_Programmable_Pulse_Generator.vhd {1 {vcom -work work -2008 -explicit -stats=none C:/Users/Eleonora/Documents/GitHub/Programmable-Pulse-Generator/tb/tb_Programmable_Pulse_Generator.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_Programmable_Pulse_Generator
+-- Compiling architecture testbench of tb_Programmable_Pulse_Generator
+
 } {} {}}
